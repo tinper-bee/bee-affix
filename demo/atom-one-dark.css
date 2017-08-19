@@ -94,3 +94,16 @@ hue-6-2: #e6c07b
 .hljs-link {
   text-decoration: underline;
 }
+.outer-box{
+  height: 1000px;
+  background: pink;
+}
+.content {
+    width: 150px;
+    height: 200px;
+    background: red;
+    font-size: 32px;
+    color: #fff;
+    text-align: center;
+    line-height: 200px;
+}

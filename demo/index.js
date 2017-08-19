@@ -14,19 +14,24 @@ const CARETUP = <i className="uf uf-arrow-up"></i>;
 
 /**
 *
-* @title 这是标题
-* @description 这是描述
+* @title Affix
+* @description 固定
 *
 */
+
 class Demo1 extends Component {
-render () {
-return (
-<div>
-欢迎使用老赵DEMO系统
-</div>
-)
-}
-}var DemoArray = [{"example":<Demo1 />,"title":" 这是标题","code":"/**\n*\n* @title 这是标题\n* @description 这是描述\n*\n*/\nclass Demo1 extends Component {\nrender () {\nreturn (\n<div>\n欢迎使用老赵DEMO系统\n</div>\n)\n}\n}","desc":" 这是描述"}]
+	render () {
+			return (
+				<div className="outer-box" id="outer-box">
+					<Affix container={'tinperBeeDemo'}>
+						<div className='content'>
+								<span>affix</span>
+						</div>
+				  </Affix>
+				</div>
+			)
+		}
+}var DemoArray = [{"example":<Demo1 />,"title":" Affix","code":"/**\n*\n* @title Affix\n* @description 固定\n*\n*/\n\nclass Demo1 extends Component {\n\trender () {\n\t\t\treturn (\n\t\t\t\t<div className=\"outer-box\" id=\"outer-box\">\n\t\t\t\t\t<Affix container={'tinperBeeDemo'}>\n\t\t\t\t\t\t<div className='content'>\n\t\t\t\t\t\t\t\t<span>affix</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t  </Affix>\n\t\t\t\t</div>\n\t\t\t)\n\t\t}\n}","desc":" 固定"}]
 
 
 class Demo extends Component {

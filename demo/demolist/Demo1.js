@@ -1,15 +1,20 @@
 /**
 *
-* @title 这是标题
-* @description 这是描述
+* @title Affix
+* @description 固定
 *
 */
+
 class Demo1 extends Component {
-render () {
-return (
-<div>
-欢迎使用老赵DEMO系统
-</div>
-)
-}
+	render () {
+			return (
+				<div className="outer-box" id="outer-box">
+					<Affix container={'tinperBeeDemo'}>
+						<div className='content'>
+								<span>affix</span>
+						</div>
+				  </Affix>
+				</div>
+			)
+		}
 }
