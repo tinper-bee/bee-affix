@@ -94,16 +94,19 @@ hue-6-2: #e6c07b
 .hljs-link {
   text-decoration: underline;
 }
+#tinperBeeDemo{
+  width: 2000px;
+}
 .outer-box{
   height: 1000px;
   background: pink;
 }
 .content {
     width: 150px;
-    height: 200px;
+    height: 100px;
     background: red;
-    font-size: 32px;
+    font-size: 20px;
     color: #fff;
     text-align: center;
-    line-height: 200px;
+    line-height: 100px;
 }
