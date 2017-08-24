@@ -20,13 +20,21 @@ some description...
 ## 使用方法
 
 ```
-<Affix>
-    <div class='content'>
-    </div>
-</Affix>
+import Affix from 'bee-affix';
+
+React.render(<Affix><div className="content"></div></Affix>,
+         document.getElementById('target'));
 ```
 
+## 样式引入
 
+```
+<link rel="stylesheet" href="./node_modules/bee-affix/build/Affix.css">
+//或是
+import "./node_modules/bee-affix/src/Affix.scss"
+//或是
+import "./node_modules/bee-affix/build/Affix.css"
+```
 
 ## API
 
