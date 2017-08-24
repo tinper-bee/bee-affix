@@ -136,7 +136,7 @@ class Affix extends Component {
     }
     
     /**
-     * 只有上面的方法handleTargetChange使得afixed=ture才会执行
+     * 只有上面的方法handleTargetChange使得affixed=ture才会执行
      * @return {[type]} [description]
      */
     calculate =()=> {
@@ -145,7 +145,6 @@ class Affix extends Component {
         if(!this.state.affixed) return {fixStyle, boxStyle}
         let h = (this.state.top - this.state.marginTop + this.state.containerHeight) - this.state.height;
         if (this.state.top < this.props.offsetTop) {
-            debugger;
             fixStyle = {
                 position: "fixed",
                 top: h < 0 ? h : Math.min(h, this.props.offsetTop),
