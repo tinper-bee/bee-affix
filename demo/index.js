@@ -12,67 +12,7 @@ const CARET = <i className="uf uf-arrow-down"></i>;
 const CARETUP = <i className="uf uf-arrow-up"></i>;
 
 
-/**
-*
-* @title Affix
-* @description 固定
-*
-*/
-
-class Demo1 extends Component {
-	render () {
-		return (
-			<div className="outer-box" id="outer-box">
-				<label>基本的Affix，`container=tinperBeeDemo`</label>
-				<Affix container={document.getElementById('tinperBeeDemo')}>
-					<div className='content'>
-							<span>affix</span>
-					</div>
-			  </Affix>
-			</div>
-		)
-	}
-}/**
-*
-* @title offsetTop Affix
-* @description 触发固定的top
-*
-*/
-
-class Demo2 extends Component {
-	render () {
-		return (
-			<div className="outer-box" id="outer-box">
-				<label>基本的Affix，`container=tinperBeeDemo offsetTop=200`</label>
-				<Affix container={document.getElementById('tinperBeeDemo')} offsetTop={200}>
-					<div className='content'>
-							<span>affix</span>
-					</div>
-			  </Affix>
-			</div>
-		)
-	}
-}/**
-*
-* @title horizontal Affix
-* @description 被固定时是否可以左右滑动
-*
-*/
-
-class Demo3 extends Component {
-	render () {
-		return (
-			<div className="outer-box" id="outer-box">
-				<label>基本的Affix，`container=tinperBeeDemo horizontal offsetTop=350 `</label>
-				<Affix container={document.getElementById('tinperBeeDemo')} horizontal offsetTop={350}>
-					<div className='content'>
-							<span>affix</span>
-					</div>
-			  </Affix>
-			</div>
-		)
-	}
-}var DemoArray = [{"example":<Demo1 />,"title":" Affix","code":"/**\r\n*\r\n* @title Affix\r\n* @description 固定\r\n*\r\n*/\r\n\r\nclass Demo1 extends Component {\r\n\trender () {\r\n\t\treturn (\r\n\t\t\t<div className=\"outer-box\" id=\"outer-box\">\r\n\t\t\t\t<label>基本的Affix，`container=tinperBeeDemo`</label>\r\n\t\t\t\t<Affix container={document.getElementById('tinperBeeDemo')}>\r\n\t\t\t\t\t<div className='content'>\r\n\t\t\t\t\t\t\t<span>affix</span>\r\n\t\t\t\t\t</div>\r\n\t\t\t  </Affix>\r\n\t\t\t</div>\r\n\t\t)\r\n\t}\r\n}","desc":" 固定"},{"example":<Demo2 />,"title":" offsetTop Affix","code":"/**\r\n*\r\n* @title offsetTop Affix\r\n* @description 触发固定的top\r\n*\r\n*/\r\n\r\nclass Demo2 extends Component {\r\n\trender () {\r\n\t\treturn (\r\n\t\t\t<div className=\"outer-box\" id=\"outer-box\">\r\n\t\t\t\t<label>基本的Affix，`container=tinperBeeDemo offsetTop=200`</label>\r\n\t\t\t\t<Affix container={document.getElementById('tinperBeeDemo')} offsetTop={200}>\r\n\t\t\t\t\t<div className='content'>\r\n\t\t\t\t\t\t\t<span>affix</span>\r\n\t\t\t\t\t</div>\r\n\t\t\t  </Affix>\r\n\t\t\t</div>\r\n\t\t)\r\n\t}\r\n}","desc":" 触发固定的top"},{"example":<Demo3 />,"title":" horizontal Affix","code":"/**\r\n*\r\n* @title horizontal Affix\r\n* @description 被固定时是否可以左右滑动\r\n*\r\n*/\r\n\r\nclass Demo3 extends Component {\r\n\trender () {\r\n\t\treturn (\r\n\t\t\t<div className=\"outer-box\" id=\"outer-box\">\r\n\t\t\t\t<label>基本的Affix，`container=tinperBeeDemo horizontal offsetTop=350 `</label>\r\n\t\t\t\t<Affix container={document.getElementById('tinperBeeDemo')} horizontal offsetTop={350}>\r\n\t\t\t\t\t<div className='content'>\r\n\t\t\t\t\t\t\t<span>affix</span>\r\n\t\t\t\t\t</div>\r\n\t\t\t  </Affix>\r\n\t\t\t</div>\r\n\t\t)\r\n\t}\r\n}","desc":" 被固定时是否可以左右滑动"}]
+var Demo1 = require("./demolist/Demo1");var Demo2 = require("./demolist/Demo2");var Demo3 = require("./demolist/Demo3");var DemoArray = [{"example":<Demo1 />,"title":" 基本的Affix","code":"/**\n*\n* @title 基本的Affix\n* @description 基本的Affix\n*\n*/\n\nimport React, { Component } from 'react';\nimport Affix from 'bee-affix';\n\nclass Demo1 extends Component {\n  render () {\n    return (\n      <div className=\"outer-box\" id=\"outer-box\">\n        <label>基本的Affix，`container=tinperBeeDemo`</label>\n        <Affix container={document.getElementById('tinperBeeDemo')}>\n          <div className='content'>\n            <span>affix</span>\n          </div>\n        </Affix>\n      </div>\n    )\n  }\n}\n\n\n","desc":" 基本的Affix"},{"example":<Demo2 />,"title":" offsetTop Affix","code":"/**\n*\n* @title offsetTop Affix\n* @description 触发固定的top\n*\n*/\n\nimport React, { Component } from 'react';\nimport Affix from 'bee-affix';\n\nclass Demo2 extends Component {\n  render () {\n    return (\n      <div className=\"outer-box\" id=\"outer-box\">\n        <label>基本的Affix，`container=tinperBeeDemo offsetTop=200`</label>\n        <Affix container={document.getElementById('tinperBeeDemo')} offsetTop={200}>\n          <div className='content'>\n            <span>affix</span>\n          </div>\n        </Affix>\n      </div>\n    )\n  }\n}\n\n\n","desc":" 触发固定的top"},{"example":<Demo3 />,"title":" horizontal Affix","code":"/**\n *\n * @title horizontal Affix\n * @description 被固定时是否可以左右滑动\n *\n */\n\n\nimport React, { Component } from 'react';\nimport Affix from 'bee-affix';\n\nclass Demo3 extends Component {\n    render() {\n        return (\n          <div className = \"outer-box\"id = \"outer-box\" >\n            <label > 基本的Affix， `container=tinperBeeDemo horizontal offsetTop=350 ` </label> \n            <Affix container = { document.getElementById('tinperBeeDemo') }horizontal offsetTop = { 350 } >\n              <div className = 'content' >\n                <span > affix </span>\n              </div> \n            </Affix> \n          </div>\n        )\n    }\n}\n\n","desc":" 被固定时是否可以左右滑动"}]
 
 
 class Demo extends Component {

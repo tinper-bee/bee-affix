@@ -5,6 +5,9 @@
 *
 */
 
+import React, { Component } from 'react';
+import Affix from '../../src';
+
 class Demo2 extends Component {
   render () {
     return (
@@ -19,3 +22,6 @@ class Demo2 extends Component {
     )
   }
 }
+
+
+export default Demo2;
