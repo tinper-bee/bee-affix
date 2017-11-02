@@ -29,7 +29,8 @@ var propTypes = {
     target: _propTypes2["default"].func, //不对外开放，获取滚动scroll以及resize功能
     onChange: _propTypes2["default"].func, //状态fixed或infixed时候调用
     onTargetChange: _propTypes2["default"].func, //功能只有一个，时时刻刻输出state的状态
-    zIndex: _propTypes2["default"].number
+    zIndex: _propTypes2["default"].number,
+    canHidden: _propTypes2["default"].bool
 };
 
 var defaultProps = {
@@ -45,7 +46,8 @@ var defaultProps = {
     onTargetChange: function onTargetChange(state) {
         return {};
     },
-    zIndex: 2
+    zIndex: 2,
+    canHidden: false
 };
 
 var Affix = function (_Component) {
@@ -116,6 +118,7 @@ var Affix = function (_Component) {
             if (_this.state.top > _this.props.offsetTop) {
                 if (_this.state.affixed == true) {
                     _this.props.onChange({ affixed: false, event: evt });
+                    //新增还原样式
                 }
                 _this.setState({ affixed: false });
             }
@@ -126,12 +129,15 @@ var Affix = function (_Component) {
         _this.calculate = function () {
             var fixStyle = {};
             var boxStyle = {};
-            if (!_this.state.affixed) return { fixStyle: fixStyle, boxStyle: boxStyle };
+            //20171102修改，添加(this.state.top - this.state.marginTop == 0)的判断，谨防height+offsetTop >= containerHeight, handleTargetChange中的
+            //this.state.top <= this.props.offsetTop 恒成立，一直有position:affixed
+            if (!_this.state.affixed || _this.state.top - _this.state.marginTop == 0) return { fixStyle: fixStyle, boxStyle: boxStyle };
             var h = _this.state.top - _this.state.marginTop + _this.state.containerHeight - _this.state.height;
             if (_this.state.top < _this.props.offsetTop) {
                 fixStyle = {
                     position: "fixed",
-                    top: h < 0 ? h : Math.min(h, _this.props.offsetTop),
+                    //修改20171102 去掉展示Affix全部内容，若是Affix内容高度大于container可展示，那么Affix只可展示部分
+                    top: _this.props.canHidden ? h < 0 ? h : Math.min(h, _this.props.offsetTop) : h < 0 ? 0 : Math.min(h, _this.props.offsetTop),
                     left: _this.props.horizontal ? _this.state.initLeft : _this.state.left,
                     height: _this.state.height,
                     width: _this.state.width,
