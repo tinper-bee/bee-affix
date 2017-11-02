@@ -13,7 +13,7 @@ class Demo2 extends Component {
     return (
       <div className="outer-box" id="outer-box">
         <label>基本的Affix，`offsetTop=200`</label>
-        <AffixoffsetTop={200}>
+        <Affix offsetTop={200}>
           <div className='content'>
             <span>affix</span>
           </div>
