@@ -43,6 +43,7 @@ import "./node_modules/bee-affix/build/Affix.css"
 |container|固定元素所属容器|object|document.body|
 |offsetTop|固定被触发距离，默认是0 ，可选的属性|number|0|
 |horizontal|被固定时是否可以左右滑动，默认是false，可选的属性|boolean|false|
+|canHidden|当Affix的内容高度超过可视区域的高度，Affix是否可以被隐藏一部分内容|boolean|false|
 |target|设置 Affix 需要监听其滚动事件的元素，值为一个返回对应 DOM 元素的函数，默认值() => window |function|() => window|
 |onChange|触发固定或者固定取消时的回调函数,返回值{ affixed: true, event: evt} |function|-|
 |onTargetChange|时刻获取Affix的状态值,返回值{state} |function|-|

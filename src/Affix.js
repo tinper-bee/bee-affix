@@ -8,6 +8,7 @@ const propTypes = {
     onChange: PropTypes.func,//状态fixed或infixed时候调用
     onTargetChange: PropTypes.func,//功能只有一个，时时刻刻输出state的状态
     zIndex: PropTypes.number,
+    canHidden:PropTypes.bool
 };
 
 const defaultProps = {
@@ -18,6 +19,7 @@ const defaultProps = {
     onChange: (affixed) => ({}),
     onTargetChange: (state) => ({}),
     zIndex: 2,
+    canHidden:false
 };
 
 class Affix extends Component {
@@ -127,7 +129,9 @@ class Affix extends Component {
 
         if (this.state.top > this.props.offsetTop) {
             if ( this.state.affixed == true) {
-                this.props.onChange({ affixed: false, event: evt})
+                this.props.onChange({ affixed: false, event: evt});
+                //新增还原样式
+                
             }
             this.setState({ affixed: false })
         }
@@ -142,12 +146,15 @@ class Affix extends Component {
     calculate =()=> {
         let fixStyle = {};
         let boxStyle = {};
-        if(!this.state.affixed) return {fixStyle, boxStyle}
+        //20171102修改，添加(this.state.top - this.state.marginTop == 0)的判断，谨防height+offsetTop >= containerHeight, handleTargetChange中的
+        //this.state.top <= this.props.offsetTop 恒成立，一直有position:affixed
+        if(!this.state.affixed || (this.state.top - this.state.marginTop == 0)) return {fixStyle, boxStyle}
         let h = (this.state.top - this.state.marginTop + this.state.containerHeight) - this.state.height;
         if (this.state.top < this.props.offsetTop) {
             fixStyle = {
                 position: "fixed",
-                top: h < 0 ? h : Math.min(h, this.props.offsetTop),
+                //修改20171102 去掉展示Affix全部内容，若是Affix内容高度大于container可展示，那么Affix只可展示部分
+                top: this.props.canHidden ? ( h < 0 ? h : Math.min(h, this.props.offsetTop)) : ( h < 0 ? 0 : Math.min(h, this.props.offsetTop)),
                 left: this.props.horizontal ? this.state.initLeft : this.state.left,
                 height: this.state.height,
                 width: this.state.width,
