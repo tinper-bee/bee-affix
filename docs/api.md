@@ -4,7 +4,6 @@
 
 ## 代码演示
 
-{% include "select.md"%}
 
 ## API
 |参数|说明|类型|默认值|
@@ -17,4 +16,3 @@
 |onTargetChange|时刻获取Affix的状态值,返回值{state} |function|-|
 
 
-{% include "util.md"%}
