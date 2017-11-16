@@ -12,8 +12,8 @@ class Demo2 extends Component {
   render () {
     return (
       <div className="outer-box" id="outer-box">
-        <label>基本的Affix，`container=tinperBeeDemo offsetTop=200`</label>
-        <Affix container={document.getElementById('tinperBeeDemo')} offsetTop={200}>
+        <label>基本的Affix，`offsetTop=200`</label>
+        <Affix offsetTop={200}>
           <div className='content'>
             <span>affix</span>
           </div>
