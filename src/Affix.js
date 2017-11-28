@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 const propTypes = {
     container: PropTypes.object,
@@ -121,14 +122,14 @@ class Affix extends Component {
         });
 
         if (this.state.top <= this.props.offsetTop) {
-            if ( this.state.affixed == false) {
+            if ( this.state.affixed === false) {
                 this.props.onChange({ affixed: true, event: evt});
             }
             this.setState({ affixed: true });//=true,calculate起作用
         }
 
         if (this.state.top > this.props.offsetTop) {
-            if ( this.state.affixed == true) {
+            if ( this.state.affixed === true) {
                 this.props.onChange({ affixed: false, event: evt});
                 //新增还原样式
                 

@@ -8,6 +8,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
 var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
@@ -61,14 +65,14 @@ var Affix = function (_Component) {
         _this.getContainerDOM = function () {
             var container = _this.props.container;
             if (container != document.body) {
-                return ReactDOM.findDOMNode(container);
+                return _reactDom2["default"].findDOMNode(container);
             }
             return container;
         };
 
         _this.getInitPosition = function () {
             var container = _this.getContainerDOM();
-            var thisElm = ReactDOM.findDOMNode(_this);
+            var thisElm = _reactDom2["default"].findDOMNode(_this);
 
             _this.setState({
                 height: thisElm.offsetHeight,
@@ -109,14 +113,14 @@ var Affix = function (_Component) {
             });
 
             if (_this.state.top <= _this.props.offsetTop) {
-                if (_this.state.affixed == false) {
+                if (_this.state.affixed === false) {
                     _this.props.onChange({ affixed: true, event: evt });
                 }
                 _this.setState({ affixed: true }); //=true,calculate起作用
             }
 
             if (_this.state.top > _this.props.offsetTop) {
-                if (_this.state.affixed == true) {
+                if (_this.state.affixed === true) {
                     _this.props.onChange({ affixed: false, event: evt });
                     //新增还原样式
                 }
