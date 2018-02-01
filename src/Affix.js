@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
+
 const propTypes = {
     container: PropTypes.object,
     offsetTop: PropTypes.number,
@@ -169,7 +171,7 @@ class Affix extends Component {
     render() {
         const { fixStyle, boxStyle }= this.calculate()
         return (
-            <div className="u-affix-container" id="u-affix-container" style={boxStyle}>
+            <div className={classnames("u-affix-container",this.props.className)} id="u-affix-container" style={boxStyle}>
                 <div className="u-affix-content" style={fixStyle}>
                     {this.props.children}
                 </div>

@@ -6308,6 +6308,10 @@
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
+	var _classnames = __webpack_require__(3);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
@@ -6514,7 +6518,7 @@
 	
 	        return _react2['default'].createElement(
 	            'div',
-	            { className: 'u-affix-container', id: 'u-affix-container', style: boxStyle },
+	            { className: (0, _classnames2['default'])("u-affix-container", this.props.className), id: 'u-affix-container', style: boxStyle },
 	            _react2['default'].createElement(
 	                'div',
 	                { className: 'u-affix-content', style: fixStyle },
