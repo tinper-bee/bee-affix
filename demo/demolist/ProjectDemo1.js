@@ -31,6 +31,16 @@ class Demo1 extends Component {
             </div>
           </h3>
         </Affix>
+        <div className="content-ss">
+          <div className="content-ss-item">
+                  <label htmlFor="" className="name">手机号</label>
+                  <input className="info"/>
+            </div>
+            <div className="content-ss-item">
+                  <label htmlFor="" className="name">手机号2</label>
+                  <input className="info"/>
+            </div>
+       </div>
       </div>
     )
   }
