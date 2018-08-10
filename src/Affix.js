@@ -46,6 +46,10 @@ class Affix extends Component {
         this.getContainerDOM = this.getContainerDOM.bind(this);
         this.handleTargetChange = this.handleTargetChange.bind(this);
     }
+ 
+    componentWillReceiveProps(nextProps){
+        this.getInitPosition();
+    }
 
     componentDidMount() {
         this.getInitPosition();
@@ -140,6 +144,7 @@ class Affix extends Component {
         }
  
         this.props.onTargetChange(this.state);
+        this.getInitPosition();
     }
     
     /**
