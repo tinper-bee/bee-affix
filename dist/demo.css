@@ -6164,4 +6164,22 @@ input.u-button[type="submit"] {
   text-align: center;
   line-height: 100px; }
 
+.content {
+  width: 150px;
+  height: 100px;
+  background: red;
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  line-height: 100px; }
+
+.content {
+  width: 150px;
+  height: 100px;
+  background: red;
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  line-height: 100px; }
+
 /*# sourceMappingURL=demo.css.map */

@@ -1,19 +1,19 @@
 /**
 *
-* @title 基本的Affix
-* @description 基本的Affix
+* @title offsetTop Affix
+* @description 触发固定的top
 *
 */
 
 import React, { Component } from 'react';
 import Affix from '../../src';
 
-class Demo1 extends Component {
+class Demo2 extends Component {
   render () {
     return (
       <div className="outer-box" id="outer-box">
-        <label>基本的Affix</label>
-        <Affix>
+        <label>基本的Affix，`offsetTop=200`</label>
+        <Affix offsetTop={200}>
           <div className='content'>
             <span>affix</span>
           </div>
@@ -24,4 +24,4 @@ class Demo1 extends Component {
 }
 
 
-export default Demo1;
+export default Demo2;
