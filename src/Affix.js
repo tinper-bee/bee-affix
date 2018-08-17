@@ -144,7 +144,7 @@ class Affix extends Component {
         }
  
         this.props.onTargetChange(this.state);
-        this.getInitPosition();
+        // this.getInitPosition();
     }
     
     /**
