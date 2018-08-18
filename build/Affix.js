@@ -132,7 +132,7 @@ var Affix = function (_Component) {
             }
 
             _this.props.onTargetChange(_this.state);
-            _this.getInitPosition();
+            // this.getInitPosition();
         };
 
         _this.calculate = function () {
