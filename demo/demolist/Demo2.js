@@ -14,8 +14,8 @@ class Demo2 extends Component {
     let container = document.getElementsByClassName('page-container u-container example')[0]? document.getElementsByClassName('page-container u-container example')[0] : document.getElementById('tinperBeeDemo');
 
     return (
-      <div className="outer-box" id="outer-box">
-        <label>基本的Affix，`zIndex={2001} offsetTop=200`</label>
+      <div className="outer-box" id="outer-box2">
+        <label>基本的Affix，具体屏幕顶部距离等于offetTop `zIndex={2001} offsetTop=200`</label>
         <Affix container={container} zIndex={2001} offsetTop={200}>
           <div className='content'>
             <span>affix</span>

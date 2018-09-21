@@ -76,7 +76,7 @@
 	
 	var CARETUP = _react2['default'].createElement('i', { className: 'uf uf-arrow-up' });
 	
-	var Demo1 = __webpack_require__(67);var Demo2 = __webpack_require__(70);var Demo3 = __webpack_require__(71);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 基本的Affix", "code": "/**\n*\n* @title 基本的Affix\n* @description 基本的Affix\n*\n*/\n\nimport React, { Component } from 'react';\nimport { Affix } from 'tinper-bee';\n\n\nclass Demo1 extends Component {\n  render () {\n    //请注意，这个container是为了适应tinperbee官网的布局特意设定，其他没有意外不需要传container，默认body\n    let container = document.getElementsByClassName('page-container u-container example')[0]? document.getElementsByClassName('page-container u-container example')[0] : document.getElementById('tinperBeeDemo');\n\n    return (\n      <div className=\"outer-box\" id=\"outer-box\">\n        <label>基本的Affix zIndex={2001}</label>\n        <Affix contaniner={container} zIndex={2001}>\n          <div className='content'>\n            <span>affix</span>\n          </div>\n        </Affix>\n      </div>\n    )\n  }\n}\n\n\n", "desc": " 基本的Affix", "scss_code": ".content {\n  width: 150px;\n  height: 100px;\n  background-image: linear-gradient(-180deg, #6873E8 0%, #277DF4 100%);\n  font-size: 20px;\n  color: #fff;\n  text-align: center;\n  line-height: 100px;\n}" }, { "example": _react2['default'].createElement(Demo2, null), "title": " offsetTop Affix", "code": "/**\n*\n* @title offsetTop Affix\n* @description 触发固定的top\n*\n*/\n\nimport React, { Component } from 'react';\nimport { Affix } from 'tinper-bee';\n\nclass Demo2 extends Component {\n  render () {\n    //请注意，这个container是为了适应tinperbee官网的布局特意设定，其他没有意外不需要传container，默认body\n    let container = document.getElementsByClassName('page-container u-container example')[0]? document.getElementsByClassName('page-container u-container example')[0] : document.getElementById('tinperBeeDemo');\n\n    return (\n      <div className=\"outer-box\" id=\"outer-box\">\n        <label>基本的Affix，`zIndex={2001} offsetTop=200`</label>\n        <Affix container={container} zIndex={2001} offsetTop={200}>\n          <div className='content'>\n            <span>affix</span>\n          </div>\n        </Affix>\n      </div>\n    )\n  }\n}\n\n\n", "desc": " 触发固定的top", "scss_code": ".content {\n    width: 150px;\n    height: 100px;\n    background-image: linear-gradient(-180deg, #6873E8 0%, #277DF4 100%);\n    font-size: 20px;\n    color: #fff;\n    text-align: center;\n    line-height: 100px;\n  }" }, { "example": _react2['default'].createElement(Demo3, null), "title": " horizontal Affix", "code": "/**\n *\n * @title horizontal Affix\n * @description 被固定时是否可以左右滑动\n *\n */\n\n\nimport React, { Component } from 'react';\nimport { Affix } from 'tinper-bee';\n\nclass Demo3 extends Component {\n    render() {\n       //请注意，这个container是为了适应tinperbee官网的布局特意设定，其他没有意外不需要传container，默认body\n        let container = document.getElementsByClassName('page-container u-container example')[0]? document.getElementsByClassName('page-container u-container example')[0] : document.getElementById('tinperBeeDemo');\n\n        return (\n          <div className = \"outer-box\"id = \"outer-box\" >\n            <label > 基本的Affix， `zIndex={2001} horizontal offsetTop=450 ` </label> \n            <Affix container={container} zIndex={2001} horizontal={true} offsetTop = { 450 } >\n              <div className = 'content' >\n                <span > affix </span>\n              </div> \n            </Affix> \n          </div>\n        )\n    }\n}\n\n", "desc": " 被固定时是否可以左右滑动", "scss_code": ".content {\n    width: 150px;\n    height: 100px;\n    background-image: linear-gradient(-180deg, #6873E8 0%, #277DF4 100%);\n    font-size: 20px;\n    color: #fff;\n    text-align: center;\n    line-height: 100px;\n  }" }];
+	var Demo1 = __webpack_require__(67);var Demo2 = __webpack_require__(70);var Demo3 = __webpack_require__(71);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 基本的Affix", "code": "/**\n*\n* @title 基本的Affix\n* @description 基本的Affix\n*\n*/\n\nimport React, { Component } from 'react';\nimport { Affix } from 'tinper-bee';\n\n\nclass Demo1 extends Component {\n  constructor(props){\n    super(props);\n    this.state = {\n      container:null,\n    }\n  }\n\n  componentDidMount(){\n    if(document.getElementById('outer-box')){\n      this.setState({container:document.getElementById('outer-box')})\n    }\n  }\n  render () {\n  \n    return (\n      <div className=\"outer-box\" id=\"outer-box\">\n        <label>某个div内的affix，container canHidden={true} zIndex={2001}</label>\n          <Affix container={this.state.container} canHidden={true} zIndex={2001}>\n            <div className='content'>\n              <span>affix</span>\n            </div>\n          </Affix>\n       \n      </div>\n    )\n  }\n}\n\n\n", "desc": " 基本的Affix" }, { "example": _react2['default'].createElement(Demo2, null), "title": " offsetTop Affix", "code": "/**\n*\n* @title offsetTop Affix\n* @description 触发固定的top\n*\n*/\n\nimport React, { Component } from 'react';\nimport { Affix } from 'tinper-bee';\n\nclass Demo2 extends Component {\n  render () {\n    //请注意，这个container是为了适应tinperbee官网的布局特意设定，其他没有意外不需要传container，默认body\n    let container = document.getElementsByClassName('page-container u-container example')[0]? document.getElementsByClassName('page-container u-container example')[0] : document.getElementById('tinperBeeDemo');\n\n    return (\n      <div className=\"outer-box\" id=\"outer-box2\">\n        <label>基本的Affix，具体屏幕顶部距离等于offetTop `zIndex={2001} offsetTop=200`</label>\n        <Affix container={container} zIndex={2001} offsetTop={200}>\n          <div className='content'>\n            <span>affix</span>\n          </div>\n        </Affix>\n      </div>\n    )\n  }\n}\n\n\n", "desc": " 触发固定的top", "scss_code": ".content {\n    width: 150px;\n    height: 100px;\n    background-image: linear-gradient(-180deg, #6873E8 0%, #277DF4 100%);\n    font-size: 20px;\n    color: #fff;\n    text-align: center;\n    line-height: 100px;\n  }" }, { "example": _react2['default'].createElement(Demo3, null), "title": " horizontal Affix", "code": "/**\n *\n * @title horizontal Affix\n * @description 被固定时是否可以左右滑动\n *\n */\n\n\nimport React, { Component } from 'react';\nimport { Affix } from 'tinper-bee';\n\nclass Demo3 extends Component {\n    render() {\n       //请注意，这个container是为了适应tinperbee官网的布局特意设定，其他没有意外不需要传container，默认body\n        let container = document.getElementsByClassName('page-container u-container example')[0]? document.getElementsByClassName('page-container u-container example')[0] : document.getElementById('tinperBeeDemo');\n\n        return (\n          <div className = \"outer-box\"id = \"outer-box3\" >\n            <label > 基本的Affix，水平滚动affix距离左侧位置确定 `zIndex={2001} horizontal offsetTop=450 ` </label> \n            <Affix container={container} zIndex={2001} horizontal={true} offsetTop = { 450 } >\n              <div className = 'content' >\n                <span > affix </span>\n              </div> \n            </Affix> \n          </div>\n        )\n    }\n}\n\n", "desc": " 被固定时是否可以左右滑动", "scss_code": ".content {\n    width: 150px;\n    height: 100px;\n    background-image: linear-gradient(-180deg, #6873E8 0%, #277DF4 100%);\n    font-size: 20px;\n    color: #fff;\n    text-align: center;\n    line-height: 100px;\n  }" }];
 	
 	var Demo = function (_Component) {
 	    _inherits(Demo, _Component);
@@ -6376,15 +6376,24 @@
 	var Demo1 = function (_Component) {
 	  _inherits(Demo1, _Component);
 	
-	  function Demo1() {
+	  function Demo1(props) {
 	    _classCallCheck(this, Demo1);
 	
-	    return _possibleConstructorReturn(this, _Component.apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, _Component.call(this, props));
+	
+	    _this.state = {
+	      container: null
+	    };
+	    return _this;
 	  }
 	
+	  Demo1.prototype.componentDidMount = function componentDidMount() {
+	    if (document.getElementById('outer-box')) {
+	      this.setState({ container: document.getElementById('outer-box') });
+	    }
+	  };
+	
 	  Demo1.prototype.render = function render() {
-	    //请注意，这个container是为了适应tinperbee官网的布局特意设定，其他没有意外不需要传container，默认body
-	    var container = document.getElementsByClassName('page-container u-container example')[0] ? document.getElementsByClassName('page-container u-container example')[0] : document.getElementById('tinperBeeDemo');
 	
 	    return _react2['default'].createElement(
 	      'div',
@@ -6392,12 +6401,14 @@
 	      _react2['default'].createElement(
 	        'label',
 	        null,
-	        '\u57FA\u672C\u7684Affix zIndex=',
+	        '\u67D0\u4E2Adiv\u5185\u7684affix\uFF0Ccontainer canHidden=',
+	        true,
+	        ' zIndex=',
 	        2001
 	      ),
 	      _react2['default'].createElement(
 	        _src2['default'],
-	        { contaniner: container, zIndex: 2001 },
+	        { container: this.state.container, canHidden: true, zIndex: 2001 },
 	        _react2['default'].createElement(
 	          'div',
 	          { className: 'content' },
@@ -6508,16 +6519,19 @@
 	
 	        var _this = _possibleConstructorReturn(this, _Component.call(this, props));
 	
-	        _this.getContainerDOM = function () {
-	            var container = _this.props.container;
+	        _this.getContainerDOM = function (nextProps) {
+	            var container = nextProps ? nextProps.container : _this.props.container;
+	            if (!container) {
+	                return document.body;
+	            }
 	            if (container != document.body) {
 	                return _reactDom2['default'].findDOMNode(container);
 	            }
 	            return container;
 	        };
 	
-	        _this.getInitPosition = function () {
-	            var container = _this.getContainerDOM();
+	        _this.getInitPosition = function (nextProps) {
+	            var container = _this.getContainerDOM(nextProps);
 	            var thisElm = _reactDom2['default'].findDOMNode(_this);
 	
 	            _this.setState({
@@ -6620,7 +6634,7 @@
 	    }
 	
 	    Affix.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
-	        this.getInitPosition();
+	        this.getInitPosition(nextProps);
 	    };
 	
 	    Affix.prototype.componentDidMount = function componentDidMount() {
@@ -6739,11 +6753,11 @@
 	
 	    return _react2['default'].createElement(
 	      'div',
-	      { className: 'outer-box', id: 'outer-box' },
+	      { className: 'outer-box', id: 'outer-box2' },
 	      _react2['default'].createElement(
 	        'label',
 	        null,
-	        '\u57FA\u672C\u7684Affix\uFF0C`zIndex=',
+	        '\u57FA\u672C\u7684Affix\uFF0C\u5177\u4F53\u5C4F\u5E55\u9876\u90E8\u8DDD\u79BB\u7B49\u4E8EoffetTop `zIndex=',
 	        2001,
 	        ' offsetTop=200`'
 	      ),
@@ -6817,11 +6831,11 @@
 	
 	    return _react2['default'].createElement(
 	      'div',
-	      { className: 'outer-box', id: 'outer-box' },
+	      { className: 'outer-box', id: 'outer-box3' },
 	      _react2['default'].createElement(
 	        'label',
 	        null,
-	        ' \u57FA\u672C\u7684Affix\uFF0C `zIndex=',
+	        ' \u57FA\u672C\u7684Affix\uFF0C\u6C34\u5E73\u6EDA\u52A8affix\u8DDD\u79BB\u5DE6\u4FA7\u4F4D\u7F6E\u786E\u5B9A `zIndex=',
 	        2001,
 	        ' horizontal offsetTop=450 ` '
 	      ),

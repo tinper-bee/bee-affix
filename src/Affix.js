@@ -48,7 +48,7 @@ class Affix extends Component {
     }
  
     componentWillReceiveProps(nextProps){
-        this.getInitPosition();
+        this.getInitPosition(nextProps);
     }
 
     componentDidMount() {
@@ -72,8 +72,11 @@ class Affix extends Component {
      * 获取container
      * @return {[type]} [description]
      */
-    getContainerDOM =()=> {
-        const container = this.props.container;
+    getContainerDOM =(nextProps)=> {
+        const container = nextProps?nextProps.container:this.props.container;
+        if(!container){
+            return document.body
+        }
         if (container != document.body) {
             return ReactDOM.findDOMNode(container);
         }
@@ -85,8 +88,8 @@ class Affix extends Component {
      * initTop,initLeft，marginTop,marginLeft都是不变的
      * @return {[type]} [description]
      */
-    getInitPosition =()=> {
-        const container = this.getContainerDOM()
+    getInitPosition =(nextProps)=> {
+        const container = this.getContainerDOM(nextProps)
         const thisElm = ReactDOM.findDOMNode(this);
 
         this.setState({
