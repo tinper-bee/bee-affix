@@ -1,7 +1,7 @@
 /**
 *
-* @title 基本的Affix
-* @description 基本的Affix
+* @title 基本的Affix,带有container
+* @description 基本的Affix,带有container
 *
 */
 
