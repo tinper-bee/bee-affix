@@ -18,6 +18,6 @@
 解决affix的width是百分比的时resize时width重新计算
 
 <a name="1.0.9"></a>
-## 1.0.8 (2018-09-27)
+## 1.0.9 (2018-09-27)
 解决affix的children动态变化，添加childrenRef参数
 解决affix的id都是同一个值
