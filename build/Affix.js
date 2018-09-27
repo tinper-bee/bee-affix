@@ -66,16 +66,19 @@ var Affix = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, _Component.call(this, props));
 
-        _this.getContainerDOM = function () {
-            var container = _this.props.container;
+        _this.getContainerDOM = function (nextProps) {
+            var container = nextProps ? nextProps.container : _this.props.container;
+            if (!container) {
+                return document.body;
+            }
             if (container != document.body) {
                 return _reactDom2["default"].findDOMNode(container);
             }
             return container;
         };
 
-        _this.getInitPosition = function () {
-            var container = _this.getContainerDOM();
+        _this.getInitPosition = function (nextProps) {
+            var container = _this.getContainerDOM(nextProps);
             var thisElm = _reactDom2["default"].findDOMNode(_this);
 
             _this.setState({
@@ -102,7 +105,7 @@ var Affix = function (_Component) {
             });
         };
 
-        _this.handleTargetChange = function (evt) {
+        _this.handleTargetChange = function (evt, type) {
             var container = _this.getContainerDOM(); //是body
 
             var _container$getBoundin = container.getBoundingClientRect(),
@@ -132,7 +135,7 @@ var Affix = function (_Component) {
             }
 
             _this.props.onTargetChange(_this.state);
-            // this.getInitPosition();
+            type === 'resize' && _this.getInitPosition();
         };
 
         _this.calculate = function () {
@@ -178,23 +181,35 @@ var Affix = function (_Component) {
     }
 
     Affix.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
-        this.getInitPosition();
+        this.getInitPosition(nextProps);
     };
 
     Affix.prototype.componentDidMount = function componentDidMount() {
+        var _this2 = this;
+
         this.getInitPosition();
         var listenTarget = this.props.target();
         if (listenTarget) {
-            listenTarget.addEventListener('resize', this.handleTargetChange);
-            listenTarget.addEventListener('scroll', this.handleTargetChange);
+            listenTarget.addEventListener('resize', function (e) {
+                return _this2.handleTargetChange(e, 'resize');
+            });
+            listenTarget.addEventListener('scroll', function (e) {
+                return _this2.handleTargetChange(e, 'scroll');
+            });
         }
     };
 
     Affix.prototype.componentWillUnmount = function componentWillUnmount() {
+        var _this3 = this;
+
         var listenTarget = this.props.target();
         if (listenTarget) {
-            listenTarget.removeEventListener('scroll', this.handleTargetChange);
-            listenTarget.removeEventListener('resize', this.handleTargetChange);
+            listenTarget.addEventListener('resize', function (e) {
+                return _this3.handleTargetChange(e, 'resize');
+            });
+            listenTarget.addEventListener('scroll', function (e) {
+                return _this3.handleTargetChange(e, 'scroll');
+            });
         }
     };
 
