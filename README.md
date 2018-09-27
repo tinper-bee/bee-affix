@@ -47,6 +47,7 @@ import "./node_modules/bee-affix/build/Affix.css"
 |target|设置 Affix 需要监听其滚动事件的元素，值为一个返回对应 DOM 元素的函数，默认值() => window |function|() => window|
 |onChange|触发固定或者固定取消时的回调函数,返回值{ affixed: true, event: evt} |function|-|
 |onTargetChange|时刻获取Affix的状态值,返回值{state} |function|-|
+|childrenRef|如果affix下面的内容高度是变化的，让childrenRef是affix下内容的ref；如果affix下面的内容高度不变，不需要使用这个属性|object|null|
 #### 开发调试
 
 ```sh

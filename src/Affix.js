@@ -11,7 +11,8 @@ const propTypes = {
     onChange: PropTypes.func,//状态fixed或infixed时候调用
     onTargetChange: PropTypes.func,//功能只有一个，时时刻刻输出state的状态
     zIndex: PropTypes.number,
-    canHidden:PropTypes.bool
+    canHidden:PropTypes.bool,
+    childrenRef:PropTypes.object,
 };
 
 const defaultProps = {
@@ -22,7 +23,8 @@ const defaultProps = {
     onChange: (affixed) => ({}),
     onTargetChange: (state) => ({}),
     zIndex: 2,
-    canHidden:false
+    canHidden:false,
+    childrenRef:null,
 };
 
 class Affix extends Component {
@@ -40,6 +42,7 @@ class Affix extends Component {
             width: 0,//affix的宽度
             containerHeight: 0,//container的高度
             containerWidth: 0,//container的宽度
+            containerId:"u-affix-container"+Math.random().toString(26).substring(2,10),
         }
         this.calculate = this.calculate.bind(this);
         this.getInitPosition = this.getInitPosition.bind(this);
@@ -89,8 +92,9 @@ class Affix extends Component {
      * @return {[type]} [description]
      */
     getInitPosition =(nextProps)=> {
-        const container = this.getContainerDOM(nextProps)
-        const thisElm = ReactDOM.findDOMNode(this);
+        const container = this.getContainerDOM(nextProps);
+        // 20180927children是个变化，所以在nextprops要传入childrenRef，否则直接使用后面的语句
+        const thisElm = nextProps && nextProps.childrenRef && ReactDOM.findDOMNode(nextProps.childrenRef) || ReactDOM.findDOMNode(this);
 
         this.setState({
             height: thisElm.offsetHeight,
@@ -179,7 +183,7 @@ class Affix extends Component {
     render() {
         const { fixStyle, boxStyle }= this.calculate()
         return (
-            <div className={classnames("u-affix-container",this.props.className)} id="u-affix-container" style={boxStyle}>
+            <div className={classnames("u-affix-container",this.props.className)} id={this.state.containerId}style={boxStyle}>
                 <div className="u-affix-content" style={fixStyle}>
                     {this.props.children}
                 </div>
