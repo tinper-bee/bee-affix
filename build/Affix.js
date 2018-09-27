@@ -38,7 +38,8 @@ var propTypes = {
     onChange: _propTypes2["default"].func, //状态fixed或infixed时候调用
     onTargetChange: _propTypes2["default"].func, //功能只有一个，时时刻刻输出state的状态
     zIndex: _propTypes2["default"].number,
-    canHidden: _propTypes2["default"].bool
+    canHidden: _propTypes2["default"].bool,
+    childrenRef: _propTypes2["default"].object
 };
 
 var defaultProps = {
@@ -55,7 +56,8 @@ var defaultProps = {
         return {};
     },
     zIndex: 2,
-    canHidden: false
+    canHidden: false,
+    childrenRef: null
 };
 
 var Affix = function (_Component) {
@@ -79,7 +81,8 @@ var Affix = function (_Component) {
 
         _this.getInitPosition = function (nextProps) {
             var container = _this.getContainerDOM(nextProps);
-            var thisElm = _reactDom2["default"].findDOMNode(_this);
+            // 20180927children是个变化，所以在nextprops要传入childrenRef，否则直接使用后面的语句
+            var thisElm = nextProps && nextProps.childrenRef && _reactDom2["default"].findDOMNode(nextProps.childrenRef) || _reactDom2["default"].findDOMNode(_this);
 
             _this.setState({
                 height: thisElm.offsetHeight,
@@ -171,7 +174,8 @@ var Affix = function (_Component) {
             height: 0, //affix的高度
             width: 0, //affix的宽度
             containerHeight: 0, //container的高度
-            containerWidth: 0 //container的宽度
+            containerWidth: 0, //container的宽度
+            containerId: "u-affix-container" + Math.random().toString(26).substring(2, 10)
         };
         _this.calculate = _this.calculate.bind(_this);
         _this.getInitPosition = _this.getInitPosition.bind(_this);
@@ -246,7 +250,7 @@ var Affix = function (_Component) {
 
         return _react2["default"].createElement(
             'div',
-            { className: (0, _classnames2["default"])("u-affix-container", this.props.className), id: 'u-affix-container', style: boxStyle },
+            { className: (0, _classnames2["default"])("u-affix-container", this.props.className), id: this.state.containerId, style: boxStyle },
             _react2["default"].createElement(
                 'div',
                 { className: 'u-affix-content', style: fixStyle },
