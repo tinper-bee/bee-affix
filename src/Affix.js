@@ -55,16 +55,16 @@ class Affix extends Component {
         this.getInitPosition();
         const listenTarget = this.props.target();
         if (listenTarget) {
-            listenTarget.addEventListener('resize', this.handleTargetChange)
-            listenTarget.addEventListener('scroll', this.handleTargetChange)
+            listenTarget.addEventListener('resize', e=>this.handleTargetChange(e,'resize'))
+            listenTarget.addEventListener('scroll', e=>this.handleTargetChange(e,'scroll'))
         }
     }
 
     componentWillUnmount() {
         const listenTarget = this.props.target();
         if (listenTarget) {
-            listenTarget.removeEventListener('scroll', this.handleTargetChange)
-            listenTarget.removeEventListener('resize', this.handleTargetChange)
+            listenTarget.addEventListener('resize', e=>this.handleTargetChange(e,'resize'))
+            listenTarget.addEventListener('scroll', e=>this.handleTargetChange(e,'scroll'))
         }
     }
 
@@ -119,7 +119,7 @@ class Affix extends Component {
      * @param  {[object]} evt [scroll或者resize事件]
      * 有两个函数：onChange 和 onTargetChange;
      */
-    handleTargetChange =(evt)=> {
+    handleTargetChange =(evt,type)=> {
         const container = this.getContainerDOM();//是body
         const { top, left } = container.getBoundingClientRect()
 
@@ -147,7 +147,7 @@ class Affix extends Component {
         }
  
         this.props.onTargetChange(this.state);
-        // this.getInitPosition();
+        type === 'resize' && this.getInitPosition();
     }
     
     /**
