@@ -76,7 +76,7 @@
 	
 	var CARETUP = _react2['default'].createElement('i', { className: 'uf uf-arrow-up' });
 	
-	var Demo1 = __webpack_require__(67);var Demo2 = __webpack_require__(70);var Demo3 = __webpack_require__(71);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 基本的Affix", "code": "/**\n*\n* @title 基本的Affix\n* @description 基本的Affix\n*\n*/\n\nimport React, { Component } from 'react';\nimport { Affix } from 'tinper-bee';\n\n\nclass Demo1 extends Component {\n  constructor(props){\n    super(props);\n    this.state = {\n      container:null,\n    }\n  }\n\n  componentDidMount(){\n    if(document.getElementById('outer-box')){\n      this.setState({container:document.getElementById('outer-box')})\n    }\n  }\n  render () {\n  \n    return (\n      <div className=\"outer-box\" id=\"outer-box\">\n        <label>某个div内的affix，container canHidden={true} zIndex={2001}</label>\n          <Affix container={this.state.container} canHidden={true} zIndex={2001}>\n            <div className='content'>\n              <span>affix</span>\n            </div>\n          </Affix>\n       \n      </div>\n    )\n  }\n}\n\n\n", "desc": " 基本的Affix" }, { "example": _react2['default'].createElement(Demo2, null), "title": " offsetTop Affix", "code": "/**\n*\n* @title offsetTop Affix\n* @description 触发固定的top\n*\n*/\n\nimport React, { Component } from 'react';\nimport { Affix } from 'tinper-bee';\n\nclass Demo2 extends Component {\n  render () {\n    //请注意，这个container是为了适应tinperbee官网的布局特意设定，其他没有意外不需要传container，默认body\n    let container = document.getElementsByClassName('page-container u-container example')[0]? document.getElementsByClassName('page-container u-container example')[0] : document.getElementById('tinperBeeDemo');\n\n    return (\n      <div className=\"outer-box\" id=\"outer-box2\">\n        <label>基本的Affix，具体屏幕顶部距离等于offetTop `zIndex={2001} offsetTop=200`</label>\n        <Affix container={container} zIndex={2001} offsetTop={200}>\n          <div className='content'>\n            <span>affix</span>\n          </div>\n        </Affix>\n      </div>\n    )\n  }\n}\n\n\n", "desc": " 触发固定的top", "scss_code": ".content {\n    width: 150px;\n    height: 100px;\n    background-image: linear-gradient(-180deg, #6873E8 0%, #277DF4 100%);\n    font-size: 20px;\n    color: #fff;\n    text-align: center;\n    line-height: 100px;\n  }" }, { "example": _react2['default'].createElement(Demo3, null), "title": " horizontal Affix", "code": "/**\n *\n * @title horizontal Affix\n * @description 被固定时是否可以左右滑动\n *\n */\n\n\nimport React, { Component } from 'react';\nimport { Affix } from 'tinper-bee';\n\nclass Demo3 extends Component {\n    render() {\n       //请注意，这个container是为了适应tinperbee官网的布局特意设定，其他没有意外不需要传container，默认body\n        let container = document.getElementsByClassName('page-container u-container example')[0]? document.getElementsByClassName('page-container u-container example')[0] : document.getElementById('tinperBeeDemo');\n\n        return (\n          <div className = \"outer-box\"id = \"outer-box3\" >\n            <label > 基本的Affix，水平滚动affix距离左侧位置确定 `zIndex={2001} horizontal offsetTop=450 ` </label> \n            <Affix container={container} zIndex={2001} horizontal={true} offsetTop = { 450 } >\n              <div className = 'content' >\n                <span > affix </span>\n              </div> \n            </Affix> \n          </div>\n        )\n    }\n}\n\n", "desc": " 被固定时是否可以左右滑动", "scss_code": ".content {\n    width: 150px;\n    height: 100px;\n    background-image: linear-gradient(-180deg, #6873E8 0%, #277DF4 100%);\n    font-size: 20px;\n    color: #fff;\n    text-align: center;\n    line-height: 100px;\n  }" }];
+	var Demo1 = __webpack_require__(67);var Demo2 = __webpack_require__(70);var Demo3 = __webpack_require__(71);var Demo4 = __webpack_require__(72);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 基本的Affix,带有container", "code": "/**\n*\n* @title 基本的Affix,带有container\n* @description 基本的Affix,带有container\n*\n*/\n\nimport React, { Component } from 'react';\nimport { Affix } from 'tinper-bee';\n\n\nclass Demo1 extends Component {\n  constructor(props){\n    super(props);\n    this.state = {\n      container:null,\n    }\n  }\n\n  componentDidMount(){\n    if(document.getElementById('outer-box')){\n      this.setState({container:document.getElementById('outer-box')})\n    }\n  }\n  render () {\n  \n    return (\n      <div className=\"outer-box\" id=\"outer-box\">\n        <label>某个div内的affix，container canHidden={true} zIndex={2001}</label>\n          <Affix container={this.state.container} canHidden={true} zIndex={2001}>\n            <div className='content'>\n              <span>affix</span>\n            </div>\n          </Affix>\n       \n      </div>\n    )\n  }\n}\n\n\n", "desc": " 基本的Affix,带有container", "scss_code": ".content {\n  width: 150px;\n  height: 100px;\n  background-image: linear-gradient(-180deg, #6873E8 0%, #277DF4 100%);\n  font-size: 20px;\n  color: #fff;\n  text-align: center;\n  line-height: 100px;\n}\n.u-panel-title{\n  height: 800px;\n}\n#outer-box{\n  width: 700px;\n  height: 300px!important;\n  background: #1baede;\n}" }, { "example": _react2['default'].createElement(Demo2, null), "title": " offsetTop Affix", "code": "/**\n*\n* @title offsetTop Affix\n* @description 触发固定的top\n*\n*/\n\nimport React, { Component } from 'react';\nimport { Affix } from 'tinper-bee';\n\nclass Demo2 extends Component {\n  render () {\n    //请注意，这个container是为了适应tinperbee官网的布局特意设定，其他没有意外不需要传container，默认body\n    let container = document.getElementsByClassName('page-container u-container example')[0]? document.getElementsByClassName('page-container u-container example')[0] : document.getElementById('tinperBeeDemo');\n\n    return (\n      <div className=\"outer-box\" id=\"outer-box2\">\n        <label>基本的Affix，具体屏幕顶部距离等于offetTop `zIndex={2001} offsetTop=200`</label>\n        <Affix container={container} zIndex={2001} offsetTop={200}>\n          <div className='content'>\n            <span>affix</span>\n          </div>\n        </Affix>\n      </div>\n    )\n  }\n}\n\n\n", "desc": " 触发固定的top", "scss_code": ".content {\n    width: 150px;\n    height: 100px;\n    background-image: linear-gradient(-180deg, #6873E8 0%, #277DF4 100%);\n    font-size: 20px;\n    color: #fff;\n    text-align: center;\n    line-height: 100px;\n  }" }, { "example": _react2['default'].createElement(Demo3, null), "title": " horizontal Affix", "code": "/**\n *\n * @title horizontal Affix\n * @description 被固定时是否可以左右滑动\n *\n */\n\n\nimport React, { Component } from 'react';\nimport { Affix } from 'tinper-bee';\n\nclass Demo3 extends Component {\n    render() {\n       //请注意，这个container是为了适应tinperbee官网的布局特意设定，其他没有意外不需要传container，默认body\n        let container = document.getElementsByClassName('page-container u-container example')[0]? document.getElementsByClassName('page-container u-container example')[0] : document.getElementById('tinperBeeDemo');\n\n        return (\n          <div className = \"outer-box\"id = \"outer-box3\" >\n            <label > 基本的Affix，水平滚动affix距离左侧位置确定 `zIndex={2001} horizontal offsetTop=450 ` </label> \n            <Affix container={container} zIndex={2001} horizontal={true} offsetTop = { 450 } >\n              <div className = 'content' >\n                <span > affix </span>\n              </div> \n            </Affix> \n          </div>\n        )\n    }\n}\n\n", "desc": " 被固定时是否可以左右滑动", "scss_code": ".content {\n    width: 150px;\n    height: 100px;\n    background-image: linear-gradient(-180deg, #6873E8 0%, #277DF4 100%);\n    font-size: 20px;\n    color: #fff;\n    text-align: center;\n    line-height: 100px;\n  }" }, { "example": _react2['default'].createElement(Demo4, null), "title": " 基本的Affix,带有container", "code": "/**\n*\n* @title 基本的Affix,带有container\n* @description 基本的Affix,带有container\n*\n*/\n\nimport React, { Component } from 'react';\nimport { Affix } from 'tinper-bee';\n\n\nclass Demo4 extends Component {\n  constructor(props) {\n    super(props);\n    this.state = {\n      dom: null,\n      childrenRef: null,\n    }\n  }\n\n  componentDidMount() {\n    if (document.getElementById('outer-box')) {\n      this.setState({\n        dom: <div style={{ backgroundColor: 'green', opacity: 0.2 }} ref={(ref) => { this.setState({ childrenRef: ref }) }} ><h1>affix</h1><h1>affix</h1></div>\n      });\n    }\n    setTimeout(() => {\n      this.setState({\n        dom: <div style={{ backgroundColor: 'green', opacity: 0.2 }} ref={(ref) => { this.setState({ childrenRef: ref }) }} ><h1>affix</h1><h1>affix</h1><h1>affix</h1><h1>affix</h1><h1>affix</h1><h1>affix</h1></div>\n      });\n    }, 16000);\n\n  }\n  onChange = () => {\n    console.log('hahah变化');\n  }\n  render() {\n    return (\n      <div className=\"outer-box\" id=\"outer-box\">\n        <label>affix下面的dom是可变化的时候</label>\n        <Affix  zIndex={2001} onChange={this.onChange} childrenRef={this.state.childrenRef}>\n              {this.state.dom}\n          </Affix>\n\n        <div className=\"button\">1222</div>\n\n      </div>\n    );\n  }\n\n}\n\n\n", "desc": " 基本的Affix,带有container", "scss_code": "body{\n    height: 3000px;\n}\n  .content {\n      width: 60%;\n      background-image: linear-gradient(-180deg, #6873E8 0%, #277DF4 100%);\n      font-size: 20px;\n      color: #fff;\n      text-align: center;\n      /* line-height: 100px; */\n    }\n    .u-panel-title{\n      height: 800px;\n    }\n    .button{\n      height: 60px;\n      width: 200px;\n      background: pink;\n      color:#fff;\n      border-radius: 3px;\n    }\n    h1{\n      margin:0;\n      padding:0;\n    }\n   " }];
 	
 	var Demo = function (_Component) {
 	    _inherits(Demo, _Component);
@@ -6368,8 +6368,8 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); } /**
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * @title 基本的Affix
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * @description 基本的Affix
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * @title 基本的Affix,带有container
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * @description 基本的Affix,带有container
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               *
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
 	
@@ -6491,7 +6491,8 @@
 	    onChange: _propTypes2['default'].func, //状态fixed或infixed时候调用
 	    onTargetChange: _propTypes2['default'].func, //功能只有一个，时时刻刻输出state的状态
 	    zIndex: _propTypes2['default'].number,
-	    canHidden: _propTypes2['default'].bool
+	    canHidden: _propTypes2['default'].bool,
+	    childrenRef: _propTypes2['default'].object
 	};
 	
 	var defaultProps = {
@@ -6508,7 +6509,8 @@
 	        return {};
 	    },
 	    zIndex: 2,
-	    canHidden: false
+	    canHidden: false,
+	    childrenRef: null
 	};
 	
 	var Affix = function (_Component) {
@@ -6532,7 +6534,8 @@
 	
 	        _this.getInitPosition = function (nextProps) {
 	            var container = _this.getContainerDOM(nextProps);
-	            var thisElm = _reactDom2['default'].findDOMNode(_this);
+	            // 20180927children是个变化，所以在nextprops要传入childrenRef，否则直接使用后面的语句
+	            var thisElm = nextProps && nextProps.childrenRef && _reactDom2['default'].findDOMNode(nextProps.childrenRef) || _reactDom2['default'].findDOMNode(_this);
 	
 	            _this.setState({
 	                height: thisElm.offsetHeight,
@@ -6558,7 +6561,7 @@
 	            });
 	        };
 	
-	        _this.handleTargetChange = function (evt) {
+	        _this.handleTargetChange = function (evt, type) {
 	            var container = _this.getContainerDOM(); //是body
 	
 	            var _container$getBoundin = container.getBoundingClientRect(),
@@ -6588,7 +6591,7 @@
 	            }
 	
 	            _this.props.onTargetChange(_this.state);
-	            // this.getInitPosition();
+	            type === 'resize' && _this.getInitPosition();
 	        };
 	
 	        _this.calculate = function () {
@@ -6624,7 +6627,8 @@
 	            height: 0, //affix的高度
 	            width: 0, //affix的宽度
 	            containerHeight: 0, //container的高度
-	            containerWidth: 0 //container的宽度
+	            containerWidth: 0, //container的宽度
+	            containerId: "u-affix-container" + Math.random().toString(26).substring(2, 10)
 	        };
 	        _this.calculate = _this.calculate.bind(_this);
 	        _this.getInitPosition = _this.getInitPosition.bind(_this);
@@ -6638,19 +6642,31 @@
 	    };
 	
 	    Affix.prototype.componentDidMount = function componentDidMount() {
+	        var _this2 = this;
+	
 	        this.getInitPosition();
 	        var listenTarget = this.props.target();
 	        if (listenTarget) {
-	            listenTarget.addEventListener('resize', this.handleTargetChange);
-	            listenTarget.addEventListener('scroll', this.handleTargetChange);
+	            listenTarget.addEventListener('resize', function (e) {
+	                return _this2.handleTargetChange(e, 'resize');
+	            });
+	            listenTarget.addEventListener('scroll', function (e) {
+	                return _this2.handleTargetChange(e, 'scroll');
+	            });
 	        }
 	    };
 	
 	    Affix.prototype.componentWillUnmount = function componentWillUnmount() {
+	        var _this3 = this;
+	
 	        var listenTarget = this.props.target();
 	        if (listenTarget) {
-	            listenTarget.removeEventListener('scroll', this.handleTargetChange);
-	            listenTarget.removeEventListener('resize', this.handleTargetChange);
+	            listenTarget.addEventListener('resize', function (e) {
+	                return _this3.handleTargetChange(e, 'resize');
+	            });
+	            listenTarget.addEventListener('scroll', function (e) {
+	                return _this3.handleTargetChange(e, 'scroll');
+	            });
 	        }
 	    };
 	
@@ -6687,7 +6703,7 @@
 	
 	        return _react2['default'].createElement(
 	            'div',
-	            { className: (0, _classnames2['default'])("u-affix-container", this.props.className), id: 'u-affix-container', style: boxStyle },
+	            { className: (0, _classnames2['default'])("u-affix-container", this.props.className), id: this.state.containerId, style: boxStyle },
 	            _react2['default'].createElement(
 	                'div',
 	                { className: 'u-affix-content', style: fixStyle },
@@ -6859,6 +6875,151 @@
 	}(_react.Component);
 	
 	exports['default'] = Demo3;
+	module.exports = exports['default'];
+
+/***/ }),
+/* 72 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(4);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _src = __webpack_require__(68);
+	
+	var _src2 = _interopRequireDefault(_src);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * @title 基本的Affix,带有container
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * @description 基本的Affix,带有container
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
+	
+	var Demo4 = function (_Component) {
+	  _inherits(Demo4, _Component);
+	
+	  function Demo4(props) {
+	    _classCallCheck(this, Demo4);
+	
+	    var _this = _possibleConstructorReturn(this, _Component.call(this, props));
+	
+	    _this.onChange = function () {
+	      console.log('hahah变化');
+	    };
+	
+	    _this.state = {
+	      dom: null,
+	      childrenRef: null
+	    };
+	    return _this;
+	  }
+	
+	  Demo4.prototype.componentDidMount = function componentDidMount() {
+	    var _this2 = this;
+	
+	    if (document.getElementById('outer-box')) {
+	      this.setState({
+	        dom: _react2['default'].createElement(
+	          'div',
+	          { style: { backgroundColor: 'green', opacity: 0.2 }, ref: function ref(_ref) {
+	              _this2.setState({ childrenRef: _ref });
+	            } },
+	          _react2['default'].createElement(
+	            'h1',
+	            null,
+	            'affix'
+	          ),
+	          _react2['default'].createElement(
+	            'h1',
+	            null,
+	            'affix'
+	          )
+	        )
+	      });
+	    }
+	    setTimeout(function () {
+	      _this2.setState({
+	        dom: _react2['default'].createElement(
+	          'div',
+	          { style: { backgroundColor: 'green', opacity: 0.2 }, ref: function ref(_ref2) {
+	              _this2.setState({ childrenRef: _ref2 });
+	            } },
+	          _react2['default'].createElement(
+	            'h1',
+	            null,
+	            'affix'
+	          ),
+	          _react2['default'].createElement(
+	            'h1',
+	            null,
+	            'affix'
+	          ),
+	          _react2['default'].createElement(
+	            'h1',
+	            null,
+	            'affix'
+	          ),
+	          _react2['default'].createElement(
+	            'h1',
+	            null,
+	            'affix'
+	          ),
+	          _react2['default'].createElement(
+	            'h1',
+	            null,
+	            'affix'
+	          ),
+	          _react2['default'].createElement(
+	            'h1',
+	            null,
+	            'affix'
+	          )
+	        )
+	      });
+	    }, 16000);
+	  };
+	
+	  Demo4.prototype.render = function render() {
+	    return _react2['default'].createElement(
+	      'div',
+	      { className: 'outer-box', id: 'outer-box' },
+	      _react2['default'].createElement(
+	        'label',
+	        null,
+	        'affix\u4E0B\u9762\u7684dom\u662F\u53EF\u53D8\u5316\u7684\u65F6\u5019'
+	      ),
+	      _react2['default'].createElement(
+	        _src2['default'],
+	        { zIndex: 2001, onChange: this.onChange, childrenRef: this.state.childrenRef },
+	        this.state.dom
+	      ),
+	      _react2['default'].createElement(
+	        'div',
+	        { className: 'button' },
+	        '1222'
+	      )
+	    );
+	  };
+	
+	  return Demo4;
+	}(_react.Component);
+	
+	exports['default'] = Demo4;
 	module.exports = exports['default'];
 
 /***/ })

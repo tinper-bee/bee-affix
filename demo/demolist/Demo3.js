@@ -1,7 +1,7 @@
 /**
  *
  * @title horizontal Affix
- * @description 被固定时是否可以左右滑动
+ * @description 基本的Affix，水平滚动affix距离左侧位置确定
  *
  */
 

@@ -1,7 +1,7 @@
 /**
 *
 * @title offsetTop Affix
-* @description 触发固定的top
+* @description 触发固定的距离屏幕顶部高度等于offetTop
 *
 */
 
