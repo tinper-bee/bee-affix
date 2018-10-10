@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-
+import isEqual from 'lodash.isequal';
 const propTypes = {
     container: PropTypes.object,
     offsetTop: PropTypes.number,
@@ -51,7 +51,7 @@ class Affix extends Component {
     }
  
     componentWillReceiveProps(nextProps){
-        this.getInitPosition(nextProps);
+        if(!isEqual(nextProps,this.props))this.getInitPosition(nextProps);
     }
 
     componentDidMount() {
