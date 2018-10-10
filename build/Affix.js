@@ -142,7 +142,7 @@ var Affix = function (_Component) {
             }
 
             _this.props.onTargetChange(_this.state);
-            type === 'resize' && _this.getInitPosition();
+            _this.getInitPosition();
         };
 
         _this.calculate = function () {
@@ -187,10 +187,6 @@ var Affix = function (_Component) {
         _this.handleTargetChange = _this.handleTargetChange.bind(_this);
         return _this;
     }
-
-    Affix.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
-        if (!(0, _lodash2["default"])(nextProps, this.props)) this.getInitPosition(nextProps);
-    };
 
     Affix.prototype.componentDidMount = function componentDidMount() {
         var _this2 = this;

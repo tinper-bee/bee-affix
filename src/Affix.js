@@ -50,9 +50,6 @@ class Affix extends Component {
         this.handleTargetChange = this.handleTargetChange.bind(this);
     }
  
-    componentWillReceiveProps(nextProps){
-        if(!isEqual(nextProps,this.props))this.getInitPosition(nextProps);
-    }
 
     componentDidMount() {
         this.getInitPosition();
@@ -151,7 +148,7 @@ class Affix extends Component {
         }
  
         this.props.onTargetChange(this.state);
-        type === 'resize' && this.getInitPosition();
+        this.getInitPosition();
     }
     
     /**
