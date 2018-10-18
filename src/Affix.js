@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import isEqual from 'lodash.isequal';
+import {addEventListener,removeEventListener} from './utils';
 const propTypes = {
     container: PropTypes.object,
     offsetTop: PropTypes.number,
@@ -55,16 +56,20 @@ class Affix extends Component {
         this.getInitPosition();
         const listenTarget = this.props.target();
         if (listenTarget) {
-            listenTarget.addEventListener('resize', e=>this.handleTargetChange(e,'resize'))
-            listenTarget.addEventListener('scroll', e=>this.handleTargetChange(e,'scroll'))
+            addEventListener(listenTarget,'resize',this.handleTargetChange);
+            addEventListener(listenTarget,'scroll',this.handleTargetChange);
+            // listenTarget.addEventListener('resize', e=>this.handleTargetChange(e,'resize'))
+            // listenTarget.addEventListener('scroll', e=>this.handleTargetChange(e,'scroll'))
         }
     }
 
     componentWillUnmount() {
         const listenTarget = this.props.target();
         if (listenTarget) {
-            listenTarget.addEventListener('resize', e=>this.handleTargetChange(e,'resize'))
-            listenTarget.addEventListener('scroll', e=>this.handleTargetChange(e,'scroll'))
+            removeEventListener(listenTarget,'resize',this.handleTargetChange);
+            removeEventListener(listenTarget,'scroll',this.handleTargetChange);
+            // listenTarget.addEventListener('resize', e=>this.handleTargetChange(e,'resize'))
+            // listenTarget.addEventListener('scroll', e=>this.handleTargetChange(e,'scroll'))
         }
     }
 
