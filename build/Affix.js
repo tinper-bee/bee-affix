@@ -24,6 +24,8 @@ var _lodash = require('lodash.isequal');
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
+var _utils = require('./utils');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
@@ -189,31 +191,23 @@ var Affix = function (_Component) {
     }
 
     Affix.prototype.componentDidMount = function componentDidMount() {
-        var _this2 = this;
-
         this.getInitPosition();
         var listenTarget = this.props.target();
         if (listenTarget) {
-            listenTarget.addEventListener('resize', function (e) {
-                return _this2.handleTargetChange(e, 'resize');
-            });
-            listenTarget.addEventListener('scroll', function (e) {
-                return _this2.handleTargetChange(e, 'scroll');
-            });
+            (0, _utils.addEventListener)(listenTarget, 'resize', this.handleTargetChange);
+            (0, _utils.addEventListener)(listenTarget, 'scroll', this.handleTargetChange);
+            // listenTarget.addEventListener('resize', e=>this.handleTargetChange(e,'resize'))
+            // listenTarget.addEventListener('scroll', e=>this.handleTargetChange(e,'scroll'))
         }
     };
 
     Affix.prototype.componentWillUnmount = function componentWillUnmount() {
-        var _this3 = this;
-
         var listenTarget = this.props.target();
         if (listenTarget) {
-            listenTarget.addEventListener('resize', function (e) {
-                return _this3.handleTargetChange(e, 'resize');
-            });
-            listenTarget.addEventListener('scroll', function (e) {
-                return _this3.handleTargetChange(e, 'scroll');
-            });
+            (0, _utils.removeEventListener)(listenTarget, 'resize', this.handleTargetChange);
+            (0, _utils.removeEventListener)(listenTarget, 'scroll', this.handleTargetChange);
+            // listenTarget.addEventListener('resize', e=>this.handleTargetChange(e,'resize'))
+            // listenTarget.addEventListener('scroll', e=>this.handleTargetChange(e,'scroll'))
         }
     };
 
