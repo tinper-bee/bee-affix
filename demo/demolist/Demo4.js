@@ -6,6 +6,7 @@
 */
 
 import React, { Component } from 'react';
+import Button from 'bee-button';
 import Affix from '../../src';
 
 
@@ -38,11 +39,11 @@ class Demo4 extends Component {
     return (
       <div className="outer-box" id="outer-box">
         <label>affix下面的dom是可变化的时候</label>
-        <Affix  zIndex={2001} onChange={this.onChange} childrenRef={this.state.childrenRef}>
+          <Affix zIndex={2001} onChange={this.onChange} childrenRef={this.state.childrenRef}>
               {this.state.dom}
           </Affix>
 
-        <div className="button">1222</div>
+        <Button colors="primary">1222</Button>
 
       </div>
     );
