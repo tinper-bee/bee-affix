@@ -76,7 +76,7 @@
 	
 	var CARETUP = _react2['default'].createElement('i', { className: 'uf uf-arrow-up' });
 	
-	var Demo1 = __webpack_require__(84);var Demo2 = __webpack_require__(88);var Demo3 = __webpack_require__(89);var Demo4 = __webpack_require__(90);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 基本的Affix,带有container", "code": "/**\n*\n* @title 基本的Affix,带有container\n* @description 基本的Affix,带有container\n*\n*/\n\nimport React, { Component } from 'react';\nimport { Affix } from 'tinper-bee';\n\n\nclass Demo1 extends Component {\n  constructor(props){\n    super(props);\n    this.state = {\n      container:null,\n    }\n  }\n\n  componentDidMount(){\n    if(document.getElementById('outer-box')){\n      this.setState({container:document.getElementById('outer-box')})\n    }\n  }\n  render () {\n  \n    return (\n      <div className=\"outer-box\" id=\"outer-box\">\n        <label>某个div内的affix，container canHidden={true} zIndex={2001}</label>\n          <Affix container={this.state.container} canHidden={true} zIndex={2001}>\n            <div className='content'>\n              <span>affix</span>\n            </div>\n          </Affix>\n       \n      </div>\n    )\n  }\n}\n\n\n", "desc": " 基本的Affix,带有container", "scss_code": ".content {\n  width: 150px;\n  height: 100px;\n  background-image: linear-gradient(-180deg, #6873E8 0%, #277DF4 100%);\n  font-size: 20px;\n  color: #fff;\n  text-align: center;\n  line-height: 100px;\n}\n.u-panel-title{\n  height: 800px;\n}\n#outer-box{\n  width: 700px;\n  height: 300px!important;\n  background: #1baede;\n}" }, { "example": _react2['default'].createElement(Demo2, null), "title": " offsetTop Affix", "code": "/**\n*\n* @title offsetTop Affix\n* @description 触发固定的距离屏幕顶部高度等于offetTop\n*\n*/\n\nimport React, { Component } from 'react';\nimport { Affix } from 'tinper-bee';\n\nclass Demo2 extends Component {\n  render () {\n    //请注意，这个container是为了适应tinperbee官网的布局特意设定，其他没有意外不需要传container，默认body\n    let container = document.getElementsByClassName('page-container u-container example')[0]? document.getElementsByClassName('page-container u-container example')[0] : document.getElementById('tinperBeeDemo');\n\n    return (\n      <div className=\"outer-box\" id=\"outer-box2\">\n        <label>基本的Affix，具体屏幕顶部距离等于offetTop `zIndex={2001} offsetTop=200`</label>\n        <Affix container={container} zIndex={2001} offsetTop={200}>\n          <div className='content'>\n            <span>affix</span>\n          </div>\n        </Affix>\n      </div>\n    )\n  }\n}\n\n\n", "desc": " 触发固定的距离屏幕顶部高度等于offetTop", "scss_code": ".content {\n    width: 150px;\n    height: 100px;\n    background-image: linear-gradient(-180deg, #6873E8 0%, #277DF4 100%);\n    font-size: 20px;\n    color: #fff;\n    text-align: center;\n    line-height: 100px;\n  }" }, { "example": _react2['default'].createElement(Demo3, null), "title": " horizontal Affix", "code": "/**\n *\n * @title horizontal Affix\n * @description 基本的Affix，水平滚动affix距离左侧位置确定\n *\n */\n\n\nimport React, { Component } from 'react';\nimport { Affix } from 'tinper-bee';\n\nclass Demo3 extends Component {\n    render() {\n       //请注意，这个container是为了适应tinperbee官网的布局特意设定，其他没有意外不需要传container，默认body\n        let container = document.getElementsByClassName('page-container u-container example')[0]? document.getElementsByClassName('page-container u-container example')[0] : document.getElementById('tinperBeeDemo');\n\n        return (\n          <div className = \"outer-box\"id = \"outer-box3\" >\n            <label > 基本的Affix，水平滚动affix距离左侧位置确定 `zIndex={2001} horizontal offsetTop=450 ` </label> \n            <div style={{width:\"200px\"}}>\n              <Affix container={container} zIndex={2001} horizontal={true} offsetTop = { 450 } >\n                <div className = 'content' >\n                  <span > affix </span>\n                </div> \n              </Affix> \n            </div>\n          </div>\n        )\n    }\n}\n\n", "desc": " 基本的Affix，水平滚动affix距离左侧位置确定", "scss_code": ".content {\n    width: 150px;\n    height: 100px;\n    background-image: linear-gradient(-180deg, #6873E8 0%, #277DF4 100%);\n    font-size: 20px;\n    color: #fff;\n    text-align: center;\n    line-height: 100px;\n  }" }, { "example": _react2['default'].createElement(Demo4, null), "title": " affix下面的dom是可变化的时候", "code": "/**\n*\n* @title affix下面的dom是可变化的时候\n* @description affix下面的dom是可变化的时候\n*\n*/\n\nimport React, { Component } from 'react';\nimport { Affix } from 'tinper-bee';\n\n\nclass Demo4 extends Component {\n  constructor(props) {\n    super(props);\n    this.state = {\n      dom: null,\n      childrenRef: null,\n    }\n  }\n\n  componentDidMount() {\n    if (document.getElementById('outer-box')) {\n      this.setState({\n        dom: <div style={{ backgroundColor: 'green', opacity: 0.2 }} ref={(ref) => { this.setState({ childrenRef: ref }) }} ><h1>affix</h1><h1>affix</h1></div>\n      });\n    }\n    setTimeout(() => {\n      this.setState({\n        dom: <div style={{ backgroundColor: 'green', opacity: 0.2 }} ref={(ref) => { this.setState({ childrenRef: ref }) }} ><h1>affix</h1><h1>affix</h1><h1>affix</h1><h1>affix</h1><h1>affix</h1><h1>affix</h1></div>\n      });\n    }, 16000);\n\n  }\n  onChange = () => {\n    console.log('hahah变化');\n  }\n  render() {\n    return (\n      <div className=\"outer-box\" id=\"outer-box\">\n        <label>affix下面的dom是可变化的时候</label>\n        <Affix  zIndex={2001} onChange={this.onChange} childrenRef={this.state.childrenRef}>\n              {this.state.dom}\n          </Affix>\n\n        <div className=\"button\">1222</div>\n\n      </div>\n    );\n  }\n\n}\n\n\n", "desc": " affix下面的dom是可变化的时候", "scss_code": "body{\n    height: 3000px;\n}\n  .content {\n      width: 60%;\n      background-image: linear-gradient(-180deg, #6873E8 0%, #277DF4 100%);\n      font-size: 20px;\n      color: #fff;\n      text-align: center;\n      /* line-height: 100px; */\n    }\n    .u-panel-title{\n      height: 800px;\n    }\n    .button{\n      height: 60px;\n      width: 200px;\n      background: pink;\n      color:#fff;\n      border-radius: 3px;\n    }\n    h1{\n      margin:0;\n      padding:0;\n    }\n   " }];
+	var Demo1 = __webpack_require__(84);var Demo2 = __webpack_require__(88);var Demo3 = __webpack_require__(89);var Demo4 = __webpack_require__(90);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 基本的Affix,带有container", "code": "/**\r\n*\r\n* @title 基本的Affix,带有container\r\n* @description 基本的Affix,带有container\r\n*\r\n*/\r\n\r\nimport React, { Component } from 'react';\r\n\nimport { Affix, Button } from 'tinper-bee';\r\n\r\n\r\nclass Demo1 extends Component {\r\n  constructor(props){\r\n    super(props);\r\n    this.state = {\r\n      container:null,\r\n    }\r\n  }\r\n\r\n  componentDidMount(){\r\n    if(document.getElementById('outer-box')){\r\n      this.setState({container:document.getElementById('outer-box')})\r\n    }\r\n  }\r\n  render () {\r\n  \r\n    return (\r\n      <div className=\"demo1\">\r\n        <div>某个div内的affix，container canHidden={true} zIndex={2001}</div>\r\n        <div className=\"outer-box checkered stripes\" id=\"outer-box\">\r\n          <Affix container={this.state.container} canHidden={true} zIndex={2001}>\r\n            <Button colors=\"primary\">affix in container</Button>\r\n          </Affix>\r\n        </div>\r\n      </div>\r\n    )\r\n  }\r\n}\r\n\r\n\r\n", "desc": " 基本的Affix,带有container", "scss_code": "// .content {\r\n//   width: 150px;\r\n//   height: 100px;\r\n//   background-image: linear-gradient(-180deg, #6873E8 0%, #277DF4 100%);\r\n//   font-size: 20px;\r\n//   color: #fff;\r\n//   text-align: center;\r\n//   line-height: 100px;\r\n// }\r\n// .u-panel-title{\r\n//   height: 800px;\r\n// }\r\n// #outer-box{\r\n//   width: 700px;\r\n//   height: 300px!important;\r\n//   background: #1baede;\r\n// }\r\n.stripes {   \r\n  width: 500px;   \r\n  height: 400px!important;;   \r\n  float: left;   \r\n     \r\n  margin: 10px;   \r\n     \r\n  -webkit-background-size: 16px 16px;   \r\n  -moz-background-size: 16px 16px;   \r\n  background-size: 16px 16px; /* 控制条纹的大小 */  \r\n     \r\n  -moz-box-shadow: 1px 1px 8px #ccc;   \r\n  -webkit-box-shadow: 1px 1px 8px #ccc;   \r\n  box-shadow: 1px 1px 8px #ccc;   \r\n}  \r\n.checkered {   \r\n  background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #ccc), color-stop(.25, transparent), to(transparent)),   \r\n                    -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #ccc), color-stop(.25, transparent), to(transparent)),   \r\n                    -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #ccc)),   \r\n                    -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #ccc));   \r\n  background-image: -moz-linear-gradient(45deg, #ccc 25%, transparent 25%, transparent),   \r\n                    -moz-linear-gradient(-45deg, #ccc 25%, transparent 25%, transparent),   \r\n                    -moz-linear-gradient(45deg, transparent 75%, #ccc 75%),   \r\n                    -moz-linear-gradient(-45deg, transparent 75%, #ccc 75%);   \r\n  background-image: -o-linear-gradient(45deg, #ccc 25%, transparent 25%, transparent),   \r\n                    -o-linear-gradient(-45deg, #ccc 25%, transparent 25%, transparent),   \r\n                    -o-linear-gradient(45deg, transparent 75%, #ccc 75%),   \r\n                    -o-linear-gradient(-45deg, transparent 75%, #ccc 75%);   \r\n  background-image: linear-gradient(45deg, #ccc 25%, transparent 25%, transparent),   \r\n                    linear-gradient(-45deg, #ccc 25%, transparent 25%, transparent),   \r\n                    linear-gradient(45deg, transparent 75%, #ccc 75%),   \r\n                    linear-gradient(-45deg, transparent 75%, #ccc 75%);   \r\n}  " }, { "example": _react2['default'].createElement(Demo2, null), "title": " offsetTop Affix", "code": "/**\r\n*\r\n* @title offsetTop Affix\r\n* @description 触发固定的距离屏幕顶部高度等于offetTop\r\n*\r\n*/\r\n\r\nimport React, { Component } from 'react';\r\n\nimport { Affix, Button } from 'tinper-bee';\r\n\r\nclass Demo2 extends Component {\r\n  render () {\r\n    //请注意，这个container是为了适应tinperbee官网的布局特意设定，其他没有意外不需要传container，默认body\r\n    let container = document.getElementsByClassName('page-container u-container example')[0]? document.getElementsByClassName('page-container u-container example')[0] : document.getElementById('tinperBeeDemo');\r\n\r\n    return (\r\n      <div className=\"demo2\" id=\"outer-box2\">\r\n        <label>基本的Affix，具体屏幕顶部距离等于offetTop `zIndex={2001} offsetTop=200`</label>\r\n        <Affix container={container} zIndex={2001} offsetTop={120}>\r\n          <Button colors=\"primary\">120px to affix top</Button>\r\n        </Affix>\r\n      </div>\r\n    )\r\n  }\r\n}\r\n\r\n\r\n", "desc": " 触发固定的距离屏幕顶部高度等于offetTop", "scss_code": "// .content {\r\n//     width: 150px;\r\n//     height: 100px;\r\n//     background-image: linear-gradient(-180deg, #6873E8 0%, #277DF4 100%);\r\n//     font-size: 20px;\r\n//     color: #fff;\r\n//     text-align: center;\r\n//     line-height: 100px;\r\n//   }" }, { "example": _react2['default'].createElement(Demo3, null), "title": " horizontal Affix", "code": "/**\r\n *\r\n * @title horizontal Affix\r\n * @description 基本的Affix，水平滚动affix距离左侧位置确定\r\n *\r\n */\r\n\r\n\r\nimport React, { Component } from 'react';\r\n\nimport { Affix, Button } from 'tinper-bee';\r\n\r\nclass Demo3 extends Component {\r\n    render() {\r\n       //请注意，这个container是为了适应tinperbee官网的布局特意设定，其他没有意外不需要传container，默认body\r\n        let container = document.getElementsByClassName('page-container u-container example')[0]? document.getElementsByClassName('page-container u-container example')[0] : document.getElementById('tinperBeeDemo');\r\n\r\n        return (\r\n          <div className = \"demo3\"id = \"outer-box3\" >\r\n            <label > 基本的Affix，水平滚动affix距离左侧位置确定 `zIndex={2001} horizontal offsetTop=450 ` </label> \r\n            <div className=\"affix-container\">\r\n              <Affix container={container} zIndex={2001} horizontal={true} offsetTop = { 450 } >\r\n                <Button colors=\"primary\">450px to affix top</Button>\r\n              </Affix> \r\n            </div>\r\n          </div>\r\n        )\r\n    }\r\n}\r\n\r\n", "desc": " 基本的Affix，水平滚动affix距离左侧位置确定", "scss_code": "// .content {\r\n//     width: 150px;\r\n//     height: 100px;\r\n//     background-image: linear-gradient(-180deg, #6873E8 0%, #277DF4 100%);\r\n//     font-size: 20px;\r\n//     color: #fff;\r\n//     text-align: center;\r\n//     line-height: 100px;\r\n//   }\r\n.demo3{\r\n  width: 2000px;\r\n  height: 400px;\r\n  .affix-container{\r\n    width: 200px;\r\n    margin-left: 100px;\r\n    margin-top: 300px;\r\n  }\r\n}" }, { "example": _react2['default'].createElement(Demo4, null), "title": " affix下面的dom是可变化的时候", "code": "/**\r\n*\r\n* @title affix下面的dom是可变化的时候\r\n* @description affix下面的dom是可变化的时候\r\n*\r\n*/\r\n\r\nimport React, { Component } from 'react';\r\n\nimport { Affix, Button } from 'tinper-bee';\r\n\r\n\r\nclass Demo4 extends Component {\r\n  constructor(props) {\r\n    super(props);\r\n    this.state = {\r\n      dom: null,\r\n      childrenRef: null,\r\n    }\r\n  }\r\n\r\n  componentDidMount() {\r\n    if (document.getElementById('outer-box')) {\r\n      this.setState({\r\n        dom: <div style={{ backgroundColor: 'lightgrey', opacity: 0.4 }} ref={(ref) => { this.setState({ childrenRef: ref }) }} ><h1>affix</h1><h1>affix</h1></div>\r\n      });\r\n    }\r\n    setTimeout(() => {\r\n      this.setState({\r\n        dom: <div style={{ backgroundColor: 'lightgrey', opacity: 0.4 }} ref={(ref) => { this.setState({ childrenRef: ref }) }} ><h1>affix</h1><h1>affix</h1><h1>affix</h1><h1>affix</h1><h1>affix</h1><h1>affix</h1></div>\r\n      });\r\n    }, 5000);\r\n\r\n  }\r\n  onChange = () => {\r\n    console.log('触发固定或者固定取消时的回调函数');\r\n  }\r\n  render() {\r\n    return (\r\n      <div className=\"outer-box\" id=\"outer-box\">\r\n          <Affix zIndex={2001} onChange={this.onChange} childrenRef={this.state.childrenRef}>\r\n              {this.state.dom}\r\n          </Affix>\r\n        <p>问世间、情为何物，只教生死相许？天南地北双飞客，老翅几回寒暑。欢乐趣，离别苦， 就中更有痴儿女。君应有语，渺万里层云，千山暮雪，只影向谁去？横汾路，寂寞当年箫鼓，荒烟依旧平楚。招魂楚些何嗟及， 山鬼暗谛风雨。天也妒，未信与，莺几燕子俱黄土。千秋万古，为留待骚人，狂歌痛饮，来访雁丘处。</p>\r\n\r\n      </div>\r\n    );\r\n  }\r\n\r\n}\r\n\r\n\r\n", "desc": " affix下面的dom是可变化的时候", "scss_code": "// body{\r\n//     height: 3000px;\r\n// }\r\n//   .content {\r\n//       width: 60%;\r\n//       background-image: linear-gradient(-180deg, #6873E8 0%, #277DF4 100%);\r\n//       font-size: 20px;\r\n//       color: #fff;\r\n//       text-align: center;\r\n//       /* line-height: 100px; */\r\n//     }\r\n//     .u-panel-title{\r\n//       height: 800px;\r\n//     }\r\n//     .button{\r\n//       height: 60px;\r\n//       width: 200px;\r\n//       background: pink;\r\n//       color:#fff;\r\n//       border-radius: 3px;\r\n//     }\r\n//     h1{\r\n//       margin:0;\r\n//       padding:0;\r\n//     }\r\n.navbar-container{\r\n    margin: 10px 15px;\r\n}" }];
 	
 	var Demo = function (_Component) {
 	    _inherits(Demo, _Component);
@@ -8010,6 +8010,10 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _beeButton = __webpack_require__(82);
+	
+	var _beeButton2 = _interopRequireDefault(_beeButton);
+	
 	var _src = __webpack_require__(85);
 	
 	var _src2 = _interopRequireDefault(_src);
@@ -8053,9 +8057,9 @@
 	
 	    return _react2['default'].createElement(
 	      'div',
-	      { className: 'outer-box', id: 'outer-box' },
+	      { className: 'demo1' },
 	      _react2['default'].createElement(
-	        'label',
+	        'div',
 	        null,
 	        '\u67D0\u4E2Adiv\u5185\u7684affix\uFF0Ccontainer canHidden=',
 	        true,
@@ -8063,15 +8067,15 @@
 	        2001
 	      ),
 	      _react2['default'].createElement(
-	        _src2['default'],
-	        { container: this.state.container, canHidden: true, zIndex: 2001 },
+	        'div',
+	        { className: 'outer-box checkered stripes', id: 'outer-box' },
 	        _react2['default'].createElement(
-	          'div',
-	          { className: 'content' },
+	          _src2['default'],
+	          { container: this.state.container, canHidden: true, zIndex: 2001 },
 	          _react2['default'].createElement(
-	            'span',
-	            null,
-	            'affix'
+	            _beeButton2['default'],
+	            { colors: 'primary' },
+	            'affix in container'
 	          )
 	        )
 	      )
@@ -8407,6 +8411,10 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _beeButton = __webpack_require__(82);
+	
+	var _beeButton2 = _interopRequireDefault(_beeButton);
+	
 	var _src = __webpack_require__(85);
 	
 	var _src2 = _interopRequireDefault(_src);
@@ -8441,7 +8449,7 @@
 	
 	    return _react2['default'].createElement(
 	      'div',
-	      { className: 'outer-box', id: 'outer-box2' },
+	      { className: 'demo2', id: 'outer-box2' },
 	      _react2['default'].createElement(
 	        'label',
 	        null,
@@ -8451,15 +8459,11 @@
 	      ),
 	      _react2['default'].createElement(
 	        _src2['default'],
-	        { container: container, zIndex: 2001, offsetTop: 200 },
+	        { container: container, zIndex: 2001, offsetTop: 120 },
 	        _react2['default'].createElement(
-	          'div',
-	          { className: 'content' },
-	          _react2['default'].createElement(
-	            'span',
-	            null,
-	            'affix'
-	          )
+	          _beeButton2['default'],
+	          { colors: 'primary' },
+	          '120px to affix top'
 	        )
 	      )
 	    );
@@ -8484,6 +8488,10 @@
 	var _react = __webpack_require__(4);
 	
 	var _react2 = _interopRequireDefault(_react);
+	
+	var _beeButton = __webpack_require__(82);
+	
+	var _beeButton2 = _interopRequireDefault(_beeButton);
 	
 	var _src = __webpack_require__(85);
 	
@@ -8519,7 +8527,7 @@
 	
 	    return _react2['default'].createElement(
 	      'div',
-	      { className: 'outer-box', id: 'outer-box3' },
+	      { className: 'demo3', id: 'outer-box3' },
 	      _react2['default'].createElement(
 	        'label',
 	        null,
@@ -8529,18 +8537,14 @@
 	      ),
 	      _react2['default'].createElement(
 	        'div',
-	        { style: { width: "200px" } },
+	        { className: 'affix-container' },
 	        _react2['default'].createElement(
 	          _src2['default'],
 	          { container: container, zIndex: 2001, horizontal: true, offsetTop: 450 },
 	          _react2['default'].createElement(
-	            'div',
-	            { className: 'content' },
-	            _react2['default'].createElement(
-	              'span',
-	              null,
-	              ' affix '
-	            )
+	            _beeButton2['default'],
+	            { colors: 'primary' },
+	            '450px to affix top'
 	          )
 	        )
 	      )
@@ -8566,6 +8570,10 @@
 	var _react = __webpack_require__(4);
 	
 	var _react2 = _interopRequireDefault(_react);
+	
+	var _beeButton = __webpack_require__(82);
+	
+	var _beeButton2 = _interopRequireDefault(_beeButton);
 	
 	var _src = __webpack_require__(85);
 	
@@ -8595,7 +8603,7 @@
 	    var _this = _possibleConstructorReturn(this, _Component.call(this, props));
 	
 	    _this.onChange = function () {
-	      console.log('hahah变化');
+	      console.log('触发固定或者固定取消时的回调函数');
 	    };
 	
 	    _this.state = {
@@ -8612,7 +8620,7 @@
 	      this.setState({
 	        dom: _react2['default'].createElement(
 	          'div',
-	          { style: { backgroundColor: 'green', opacity: 0.2 }, ref: function ref(_ref) {
+	          { style: { backgroundColor: 'lightgrey', opacity: 0.4 }, ref: function ref(_ref) {
 	              _this2.setState({ childrenRef: _ref });
 	            } },
 	          _react2['default'].createElement(
@@ -8632,7 +8640,7 @@
 	      _this2.setState({
 	        dom: _react2['default'].createElement(
 	          'div',
-	          { style: { backgroundColor: 'green', opacity: 0.2 }, ref: function ref(_ref2) {
+	          { style: { backgroundColor: 'lightgrey', opacity: 0.4 }, ref: function ref(_ref2) {
 	              _this2.setState({ childrenRef: _ref2 });
 	            } },
 	          _react2['default'].createElement(
@@ -8667,7 +8675,7 @@
 	          )
 	        )
 	      });
-	    }, 16000);
+	    }, 5000);
 	  };
 	
 	  Demo4.prototype.render = function render() {
@@ -8675,19 +8683,14 @@
 	      'div',
 	      { className: 'outer-box', id: 'outer-box' },
 	      _react2['default'].createElement(
-	        'label',
-	        null,
-	        'affix\u4E0B\u9762\u7684dom\u662F\u53EF\u53D8\u5316\u7684\u65F6\u5019'
-	      ),
-	      _react2['default'].createElement(
 	        _src2['default'],
 	        { zIndex: 2001, onChange: this.onChange, childrenRef: this.state.childrenRef },
 	        this.state.dom
 	      ),
 	      _react2['default'].createElement(
-	        'div',
-	        { className: 'button' },
-	        '1222'
+	        'p',
+	        null,
+	        '\u95EE\u4E16\u95F4\u3001\u60C5\u4E3A\u4F55\u7269\uFF0C\u53EA\u6559\u751F\u6B7B\u76F8\u8BB8\uFF1F\u5929\u5357\u5730\u5317\u53CC\u98DE\u5BA2\uFF0C\u8001\u7FC5\u51E0\u56DE\u5BD2\u6691\u3002\u6B22\u4E50\u8DA3\uFF0C\u79BB\u522B\u82E6\uFF0C \u5C31\u4E2D\u66F4\u6709\u75F4\u513F\u5973\u3002\u541B\u5E94\u6709\u8BED\uFF0C\u6E3A\u4E07\u91CC\u5C42\u4E91\uFF0C\u5343\u5C71\u66AE\u96EA\uFF0C\u53EA\u5F71\u5411\u8C01\u53BB\uFF1F\u6A2A\u6C7E\u8DEF\uFF0C\u5BC2\u5BDE\u5F53\u5E74\u7BAB\u9F13\uFF0C\u8352\u70DF\u4F9D\u65E7\u5E73\u695A\u3002\u62DB\u9B42\u695A\u4E9B\u4F55\u55DF\u53CA\uFF0C \u5C71\u9B3C\u6697\u8C1B\u98CE\u96E8\u3002\u5929\u4E5F\u5992\uFF0C\u672A\u4FE1\u4E0E\uFF0C\u83BA\u51E0\u71D5\u5B50\u4FF1\u9EC4\u571F\u3002\u5343\u79CB\u4E07\u53E4\uFF0C\u4E3A\u7559\u5F85\u9A9A\u4EBA\uFF0C\u72C2\u6B4C\u75DB\u996E\uFF0C\u6765\u8BBF\u96C1\u4E18\u5904\u3002'
 	      )
 	    );
 	  };
