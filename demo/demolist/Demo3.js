@@ -17,11 +17,13 @@ class Demo3 extends Component {
         return (
           <div className = "outer-box"id = "outer-box3" >
             <label > 基本的Affix，水平滚动affix距离左侧位置确定 `zIndex={2001} horizontal offsetTop=450 ` </label> 
-            <Affix container={container} zIndex={2001} horizontal={true} offsetTop = { 450 } >
-              <div className = 'content' >
-                <span > affix </span>
-              </div> 
-            </Affix> 
+            <div style={{width:"200px"}}>
+              <Affix container={container} zIndex={2001} horizontal={true} offsetTop = { 450 } >
+                <div className = 'content' >
+                  <span > affix </span>
+                </div> 
+              </Affix> 
+            </div>
           </div>
         )
     }
