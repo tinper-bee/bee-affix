@@ -134,14 +134,14 @@ class Affix extends Component {
             containerWidth: container.offsetWidth,
         });
 
-        if (this.state.top <= this.props.offsetTop) {
+        if (this.state.top < this.props.offsetTop) {
             if ( this.state.affixed === false) {
                 this.props.onChange({ affixed: true, event: evt});
             }
             this.setState({ affixed: true });//=true,calculate起作用
         }
 
-        if (this.state.top > this.props.offsetTop) {
+        if (this.state.top >= this.props.offsetTop) {
             if ( this.state.affixed === true) {
                 this.props.onChange({ affixed: false, event: evt});
                 //新增还原样式
