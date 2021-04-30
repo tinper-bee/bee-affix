@@ -1,3 +1,12 @@
+## [1.0.20](https://github.com/tinper-bee/bee-affix/compare/v1.0.19...v1.0.20) (2021-04-30)
+
+
+### Bug Fixes
+
+* 编译代码 ([70bbe92](https://github.com/tinper-bee/bee-affix/commit/70bbe92bb9348daf6739c2b5be20b04bed10d6c1))
+
+
+
 ## [1.0.19](https://github.com/tinper-bee/bee-affix/compare/v1.0.18...v1.0.19) (2021-04-30)
 
 
