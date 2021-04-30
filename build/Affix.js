@@ -127,14 +127,14 @@ var Affix = function (_Component) {
                 containerWidth: container.offsetWidth
             });
 
-            if (_this.state.top <= _this.props.offsetTop) {
+            if (_this.state.top < _this.props.offsetTop) {
                 if (_this.state.affixed === false) {
                     _this.props.onChange({ affixed: true, event: evt });
                 }
                 _this.setState({ affixed: true }); //=true,calculate起作用
             }
 
-            if (_this.state.top > _this.props.offsetTop) {
+            if (_this.state.top >= _this.props.offsetTop) {
                 if (_this.state.affixed === true) {
                     _this.props.onChange({ affixed: false, event: evt });
                     //新增还原样式
