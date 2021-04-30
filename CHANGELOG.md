@@ -1,3 +1,12 @@
+## [1.0.19](https://github.com/tinper-bee/bee-affix/compare/v1.0.18...v1.0.19) (2021-04-30)
+
+
+### Bug Fixes
+
+* 处理对象变化判断条件 ([73cd7bb](https://github.com/tinper-bee/bee-affix/commit/73cd7bbc3183d3ec96a7f0209e077f8dfb538f57))
+
+
+
 ## [1.0.18](https://github.com/tinper-bee/bee-affix/compare/v1.0.17...v1.0.18) (2020-04-24)
 
 
